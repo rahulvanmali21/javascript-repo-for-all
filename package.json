@@ -1,0 +1,11 @@
+{
+  "name": "javascript_pollyfills",
+  "version": "1.0.0",
+  "description": "Polyfills for javascript functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rahul Vanmali",
+  "license": "MIT"
+}
