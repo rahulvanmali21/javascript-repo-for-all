@@ -4,9 +4,8 @@ Array.prototype.reduce = function (cb, inital) {
     if (!acc) {
       acc = this[0];
     } else {
-      acc = cb(acc, this[i], this);
+      acc = cb(acc, this[i], i, this);
     }
   }
   return acc;
 };
-
