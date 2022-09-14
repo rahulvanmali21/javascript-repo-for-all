@@ -1,4 +1,4 @@
-Array.prototype.myReverse = function () {
+Array.prototype.reverse = function () {
   if (this.length > 0) {
     let n = this.length;
     for (let i = 0; i < this.length / 2 ; i++) {
