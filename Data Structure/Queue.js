@@ -15,6 +15,11 @@ class Queue {
   size() {
     return this.#end - this.#start;
   }
+  peek() {
+    if (this.isEmpty()) return;
+    let ele = this.#data[this.#start];
+    return ele;
+  }
   enqueue(ele) {
     if (this.isFull()) return;
     this.#data[this.#end] = ele;
