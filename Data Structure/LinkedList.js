@@ -109,9 +109,10 @@ class LinkedList {
     let prev = null;
     let curr = this.head;
     while (curr) {
+      let next = curr.next;
       curr.next = prev;
       prev = curr;
-      curr = curr.next;
+      curr = next;
     }
     this.head = prev;
   }
@@ -130,15 +131,4 @@ class LinkedList {
     console.log(valuesToPrint);
   }
 }
-
-let list = new LinkedList();
-list.append(10);
-list.append(11);
-list.append(12);
-list.append(13);
-list.append(14);
-list.append(15);
-list.print();
-list.reverse(15);
-list.print();
 
