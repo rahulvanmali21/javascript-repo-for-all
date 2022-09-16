@@ -8,6 +8,7 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
+    this.tail = null;
     this.size = 0;
   }
 
@@ -19,10 +20,12 @@ class LinkedList {
   }
   prepend(value) {
     let node = new Node(value);
-    if (this.head) {
-      node.next = this.head;
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = node;
     }
     this.head = node;
+    node.next = this.head;
     this.size += 1;
   }
   insertAt(value, index) {
@@ -51,15 +54,40 @@ class LinkedList {
     let node = new Node(value);
     if (this.isEmpty()) {
       this.head = node;
+      this.tail = node;
     } else {
-      let current = this.head;
-      while (current.next) {
-        current = current.next;
-      }
-      current.next = node;
+      this.tail.next = node;
+      this.tail = node;
     }
     this.size += 1;
   }
+  removeFront() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    const value = this.head.value;
+    this.head = this.head.next;
+    this.size -= 1;
+    return value;
+  }
+  removeEnd() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    const value = this.tail.value;
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      let prev = this.head;
+      while (prev.next != this.tail) {
+        prev = pre.next;
+      }
+      prev.next = null;
+      this.tail = prev;
+    }
+  }
+
   removeFrom(index) {
     if (index < 0 && index > this.size) return null;
     let removeNode;
@@ -79,7 +107,7 @@ class LinkedList {
     this.size--;
     return removeNode.value;
   }
-  remove(value) {
+  removeValue(value) {
     if (this.isEmpty() || !value) return;
     let prev = this.head;
     if (prev.value === value) {
@@ -131,4 +159,3 @@ class LinkedList {
     console.log(valuesToPrint);
   }
 }
-

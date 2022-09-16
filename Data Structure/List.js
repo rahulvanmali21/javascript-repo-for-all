@@ -1,6 +1,11 @@
 class List {
   #collection = {};
   length = 0;
+  constructor(array) {
+    for (let index = 0; index < array.length; index++) {
+      this.add(array[index]);
+    }
+  }
   remove() {
     if (this.length === 0) return;
     let element = this.#collection[this.length];
@@ -62,3 +67,5 @@ class List {
     }
   }
 }
+let list1 = new List([1, 2, 3, 4]);
+console.log(list1[1]);
