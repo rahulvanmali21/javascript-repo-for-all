@@ -62,10 +62,8 @@ class List {
     return output;
   }
   *[Symbol.iterator]() {
-    for (let i = 0; i <= this.length; i++) {
+    for (let i = 0; i < this.length; i++) {
       yield this.#collection[i];
     }
   }
 }
-let list1 = new List([1, 2, 3, 4]);
-console.log(list1[1]);
