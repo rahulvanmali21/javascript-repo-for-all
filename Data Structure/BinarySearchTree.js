@@ -1,3 +1,5 @@
+const Queue = require("./Queue");
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -51,5 +53,40 @@ class BinarySearchTree {
       return this.searchNode(root.right, value);
     }
   }
-}
 
+  preOrder(root) {
+    if (root) {
+      console.log(root.value);
+      this.preOrder(root.left);
+      this.preOrder(root.right);
+    }
+  }
+  inOrder(root) {
+    if (root) {
+      this.preOrder(root.left);
+      console.log(root.value);
+      this.preOrder(root.right);
+    }
+  }
+  postOrder(root) {
+    if (root) {
+      this.preOrder(root.left);
+      this.preOrder(root.right);
+      console.log(root.value);
+    }
+  }
+  levelOrder() {
+    const queue = new Queue(Infinity);
+    queue.enqueue(this.root);
+    while (queue.size() > 0) {
+      let current = queue.dequeue();
+      console.log(current.value);
+      if (current.left) {
+        queue.enqueue(current.left);
+      }
+      if (current.right) {
+        queue.enqueue(current.right);
+      }
+    }
+  }
+}

@@ -33,3 +33,5 @@ class Queue {
     return ele;
   }
 }
+
+module.exports = Queue;
