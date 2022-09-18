@@ -76,7 +76,7 @@ class BinarySearchTree {
     }
   }
   levelOrder() {
-    const queue = new Queue(Infinity);
+    const queue = new Queue();
     queue.enqueue(this.root);
     while (queue.size() > 0) {
       let current = queue.dequeue();

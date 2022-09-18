@@ -4,7 +4,7 @@ class Queue {
   #end = 0;
   #capacity = 0;
   constructor(capacity) {
-    this.#capacity = capacity;
+    this.#capacity = capacity ?? Infinity;
   }
   isFull() {
     return this.#capacity === this.size();
