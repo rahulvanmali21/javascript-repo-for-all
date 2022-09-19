@@ -16,3 +16,4 @@ class Stack {
     return this.#data.length;
   }
 }
+module.exports = Stack;
