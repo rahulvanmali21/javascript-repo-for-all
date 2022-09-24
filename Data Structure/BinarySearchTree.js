@@ -89,4 +89,43 @@ class BinarySearchTree {
       }
     }
   }
+  min(node = this.root) {
+    if (node.left) {
+      return this.min(node.left);
+    } else return node.value;
+  }
+  max(node = this.root) {
+    if (node.right) {
+      return this.max(node.right);
+    }
+    return node.value;
+  }
+
+  delete(value) {
+    this.root = this.#deleteNode(this.root, value);
+  }
+  #deleteNode(node, value) {
+    if (node === null) {
+      console.log("idar")
+
+      return node;
+    }
+    if (value < node.value) {
+      node.left = this.#deleteNode(node.left, value);
+    } else if (value > node.value) {
+      node.left = this.#deleteNode(node.right, value);
+    } else if (node.value === value) {
+      if (!node.left && !node.right) {
+        return null;
+      } else if (!node.left) {
+        return node.right;
+      } else if (!node.right) {
+        return node.left;
+      }
+      node.value = this.min(node.right);
+      node.right = this.#deleteNode(node.right, node.value);
+    }
+    return node;
+  }
 }
+
