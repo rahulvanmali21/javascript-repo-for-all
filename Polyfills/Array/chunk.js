@@ -1,4 +1,4 @@
-Array.prototype.chunk = function (size = 0) {
+Array.prototype.chunk = function (size = 0,[]) {
   if (size == 0) {
     return this;
   }
@@ -20,4 +20,3 @@ Array.prototype.chunk = function (size = 0) {
   }
   return output;
 };
-

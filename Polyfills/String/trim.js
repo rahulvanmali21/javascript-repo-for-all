@@ -9,7 +9,9 @@ String.prototype.trim = function () {
     }
     start += 1;
   }
-
+  if (start === end) {
+    return "";
+  }
   for (let index = this.length - 1; index >= 0; index--) {
     let element = this[index];
     if (element !== " ") {

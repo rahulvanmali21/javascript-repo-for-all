@@ -15,7 +15,3 @@ Array.prototype.flat = function (depth = 1) {
   return flattenArray(arr, depth);
 };
 
-let a = [1, 2, 3, [[4, 5], 6]];
-
-console.log(a);
-console.log(a.flat(2));

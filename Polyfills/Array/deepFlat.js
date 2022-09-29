@@ -11,3 +11,4 @@ Array.prototype.deepFlat = function () {
   }
   return flattenArray(this);
 };
+
