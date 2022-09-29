@@ -1,11 +1,14 @@
 {
   "name": "javascript_pollyfills",
   "version": "1.0.0",
-  "description": "Polyfills for javascript functions",
+  "description": "Polyfills for javascript, Data Structure Implementations and Util functions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Rahul Vanmali",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.1.1"
+  }
 }

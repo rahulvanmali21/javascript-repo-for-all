@@ -1,10 +1,10 @@
-function once(func) {
+const once = function (func) {
   let funcCalled = false;
   return (...args) => {
     if (!funcCalled) {
       funcCalled = true;
-      func.call(this, args);
+      return func.call(this, ...args);
     }
   };
-}
-export default once;
+};
+module.exports = once;

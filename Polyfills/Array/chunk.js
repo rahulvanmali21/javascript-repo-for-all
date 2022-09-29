@@ -1,5 +1,5 @@
-Array.prototype.chunk = function (size = 0,[]) {
-  if (size == 0) {
+Array.prototype.chunk = function (size = 0) {
+  if (size == 0 || this.length <= size) {
     return this;
   }
   let output = [];
