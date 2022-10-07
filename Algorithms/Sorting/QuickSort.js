@@ -16,5 +16,3 @@ const quickSort = function (array) {
   return [...quickSort(left), pivot, ...quickSort(right)];
 };
 
-let a = [10, 2, 33, 4, 5];
-console.log(quickSort(a));
