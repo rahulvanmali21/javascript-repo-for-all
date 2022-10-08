@@ -31,4 +31,14 @@ class Trie {
     }
     return true;
   }
+  commonPrefix() {
+    let str = "";
+    let current = this.root;
+    while (Object.keys(current.children).length == 1 && !current.isWordEnd) {
+      let char = Object.keys(current.children)[0];
+      str += char;
+      current = current.children[char];
+    }
+    return str;
+  }
 }
