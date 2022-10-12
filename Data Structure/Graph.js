@@ -1,10 +1,12 @@
+const Stack = require("./Stack");
+const Queue = require("./Queue");
 class Graph {
   constructor() {
     this.adjacencyList = {};
   }
   addVertex(vertex) {
     if (!this.adjacencyList[vertex]) {
-      this.adjacencyList = new Set();
+      this.adjacencyList[vertex] = new Set();
     }
   }
   addEgde(vertex_1, vertex_2) {
@@ -42,4 +44,50 @@ class Graph {
     }
     delete this.adjacencyList;
   }
+  depthFirstSearch(vertex) {
+    let visited = new Set();
+    let stack = new Stack();
+    stack.push(vertex);
+    while (!stack.isEmpty()) {
+      let current = stack.pop();
+      visited.add(current);
+      this.adjacencyList[current].forEach((node) => {
+        if (!visited.has(node)) {
+          stack.push(node);
+        }
+      });
+    }
+    return [...visited];
+  }
+
+  breathfirstSearch(vertex) {
+    let visited = new Set();
+    let queue = new Queue();
+    queue.enqueue(vertex);
+    while (!queue.isEmpty()) {
+      let current = queue.dequeue();
+      visited.add(current);
+      this.adjacencyList[current].forEach((node) => {
+        if (!visited.has(node)) {
+          queue.enqueue(node);
+        }
+      });
+    }
+    return [...visited];
+  }
 }
+
+let graph = new Graph();
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
+graph.addEgde("A", "B");
+graph.addEgde("B", "D");
+graph.addEgde("C", "E");
+graph.addEgde("D", "F");
+console.log(graph);
+console.log(graph.depthFirstSearch("A"));
+console.log(graph.breathfirstSearch("A"));
