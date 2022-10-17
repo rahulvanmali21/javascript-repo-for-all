@@ -1,4 +1,4 @@
-const once = require("../../../Utils/once");
+const once = require("../../Utils/once");
 
 describe("utils/once", () => {
   test("with one args", () => {

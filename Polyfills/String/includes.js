@@ -1,5 +1,16 @@
 String.prototype.includes = function (searchString, position = 0) {
+  if (typeof searchString === "number") {
+    searchString += "";
+  }
+  if (typeof searchString === "object") {
+    return false;
+  }
+  if (searchString === undefined || searchString === null) return false;
+
+  if (searchString.trim() === "" || searchString === "") return true;
+
   if (this.length < 0) return false;
+
   if (this.length < searchString.length) return false;
 
   let searchStringPosition = 0;

@@ -1,4 +1,5 @@
 Array.prototype.indexOf = function (element) {
+  console.log({ element });
   if (this.length === 0 || element == undefined) {
     return -1;
   }
@@ -7,5 +8,5 @@ Array.prototype.indexOf = function (element) {
       return i;
     }
   }
+  return -1;
 };
-
